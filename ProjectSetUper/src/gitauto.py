@@ -19,3 +19,4 @@ class Git:
             out, err = sp.communicate()
             self.output.append(out)
             self.error.append(err)
+            return self.output, self.error
