@@ -5,15 +5,20 @@ import subprocess
 
 # Class git
 class Git:
-    @staticmethod
-    def subprocess_git():
+
+    def __init__(self):
+        self.out = []
+        self.err = []
+
+    def return_output_error_list(self):
+        return self.out, self.err
+
+    def subprocess_git(self):
         cmd = ['git init',
                'git branch -m main'
                ]
         for i in cmd:
             sp = subprocess.Popen(i, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = sp.communicate()
-            print('----------------------')
-            print(out)
-            print('\n \n')
-            print(err)
+            self.out.append(str(out))
+            self.err.append(str(err))

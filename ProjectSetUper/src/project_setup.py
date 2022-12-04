@@ -8,8 +8,8 @@ class Dir:
             We have to define the git_dir first because it will throw AttributeError
             because it will be created the Git object after function createDir is called.
         """
-        self.git_dir = Git.subprocess_git
         self.createDir()
+        self.error_output_list()
 
     def createDir(self):
         path = "E:\\Pyton Projects"
@@ -23,7 +23,13 @@ class Dir:
         new_path = os.path.join(path, 'GitAuto')
         os.chdir(new_path)
         print(os.getcwd())
-        self.git_dir()
+        Git().subprocess_git()
+
+    def error_output_list(self):
+        out, err = Git().return_output_error_list()
+        print(out)
+        print('_______________________________')
+        print(err)
 
 
 git_directory = Dir()
