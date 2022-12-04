@@ -26,7 +26,8 @@ class Dir:
         Git().subprocess_git()
 
     def error_output_list(self):
-        out, err = Git().return_output_error_list()
+        out = Git().output
+        err = Git().error
         print(out)
         print('_______________________________')
         print(err)

@@ -7,11 +7,8 @@ import subprocess
 class Git:
 
     def __init__(self):
-        self.out = []
-        self.err = []
-
-    def return_output_error_list(self):
-        return self.out, self.err
+        self.output = []
+        self.error = []
 
     def subprocess_git(self):
         cmd = ['git init',
@@ -20,5 +17,5 @@ class Git:
         for i in cmd:
             sp = subprocess.Popen(i, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = sp.communicate()
-            self.out.append(str(out))
-            self.err.append(str(err))
+            self.output.append(out)
+            self.error.append(err)
