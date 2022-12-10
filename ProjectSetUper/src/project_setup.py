@@ -5,40 +5,38 @@ import os
 class Dir:
     def __init__(self):
 
-        self.project_name = None
         self.output_list = None
         self.error_list = None
-        self.path = "E:\\Pyton Projects"
 
         """
             We have to define the git_dir first because it will throw AttributeError
             because it will be created the Git object after function createDir is called.
         """
-        self.taking_project_name_user()
         self.createDir()
         self.error_output_list(self.output_list, self.error_list)
         self.sub_main_folder()
 
     def createDir(self):
-        os.chdir(self.path)
+        path = "E:\\Pyton Projects"
+        os.chdir(path)
         print(os.getcwd())
         try:
-            os.mkdir(self.project_name)
+            os.mkdir('GitAuto')
         except FileExistsError:
             print('choose a new name')
 
-        new_path = os.path.join(self.path, self.project_name)
+        new_path = os.path.join(path, 'GitAuto')
         os.chdir(new_path)
         print(os.getcwd())
         self.git_repo_init()
 
     def sub_main_folder(self):
-        sub_folder_path = self.path + "\\{}".format(self.project_name)
-        os.chdir(sub_folder_path)
+        path = 'E:\\Pyton Projects\\GitAuto'
+        os.chdir(path)
         print("change sub")
         print(os.getcwd())
-        os.mkdir(self.project_name)
-        os.path.join(sub_folder_path, self.project_name)
+        os.mkdir('GitAuto')
+        os.path.join(path, 'GitAuto')
         print(os.getcwd())
     print()
     def git_repo_init(self):
@@ -52,10 +50,6 @@ class Dir:
         print(out)
         print("_____________________________________________________")
         print(err)
-
-    def taking_project_name_user(self):
-        project_name = input("Enter the project name:\n")
-        self.project_name = project_name
 
 
 git_directory = Dir()
