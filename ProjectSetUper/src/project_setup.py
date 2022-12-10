@@ -27,6 +27,9 @@ class Dir:
         new_path = os.path.join(path, 'GitAuto')
         os.chdir(new_path)
         print(os.getcwd())
+        self.git_repo_init()
+
+    def git_repo_init(self):
         out_list, err_list = Git().subprocess_git()
         self.output_list = out_list
         self.error_list = err_list
