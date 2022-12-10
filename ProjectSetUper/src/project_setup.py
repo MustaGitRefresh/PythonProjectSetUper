@@ -40,7 +40,7 @@ class Dir:
         os.mkdir(self.project_name)
         os.path.join(sub_folder_path, self.project_name)
         print(os.getcwd())
-
+    print()
     def git_repo_init(self):
         out_list, err_list = Git().subprocess_git()
         self.output_list = out_list
