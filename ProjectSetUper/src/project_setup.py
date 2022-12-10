@@ -4,7 +4,8 @@ import os
 
 class Dir:
     def __init__(self):
-
+        self.path = 'E:\\Pyton Projects'
+        self.project_name = None
         self.output_list = None
         self.error_list = None
 
@@ -31,7 +32,6 @@ class Dir:
         print(os.getcwd())
         self.git_repo_init()
 
-<<<<<<< HEAD
     def sub_main_folder(self):
         path = 'E:\\Pyton Projects\\GitAuto'
         os.chdir(path)
@@ -40,11 +40,13 @@ class Dir:
         os.mkdir('GitAuto')
         os.path.join(path, 'GitAuto')
         print(os.getcwd())
-    print()
-=======
+
     def os_ones(self, sub_folder_path, folder_name):
         if not folder_name:
             folder_name = self.project_name
+
+    def sub_main_folder(self):
+        sub_folder_path = self.path + "\\{}".format(self.project_name)
         os.chdir(sub_folder_path)
         print("change sub")
         print(os.getcwd())
@@ -52,11 +54,6 @@ class Dir:
         os.path.join(sub_folder_path, folder_name)
         print(os.getcwd())
 
-    def sub_main_folder(self):
-        sub_folder_path = self.path + "\\{}".format(self.project_name)
-        self.os_ones(sub_folder_path, None)
-
->>>>>>> parent of b9a76b3 (Revert "remove the ones function by reverting")
     def git_repo_init(self):
         out_list, err_list = Git().subprocess_git()
         self.output_list = out_list
@@ -69,8 +66,6 @@ class Dir:
         print("_____________________________________________________")
         print(err)
 
-<<<<<<< HEAD
-=======
     def taking_project_name_user(self):
         project_name = input("Enter the project name:\n")
         self.project_name = project_name
@@ -81,6 +76,5 @@ class Dir:
             src_tests = self.path + '\\{}'.format(folders[i])
             self.os_ones(src_tests, folders[i])
 
->>>>>>> parent of b9a76b3 (Revert "remove the ones function by reverting")
 
 git_directory = Dir()
