@@ -71,6 +71,16 @@ class Dir:
             os.chdir(sub_folder_path)
             print(os.getcwd())
             os.mkdir(i)
+        return self.project_main_file_creator()
+
+    @staticmethod
+    def project_main_file_creator():
+        os.chdir(os.path.join(sub_folder_path, "src"))
+        print(os.getcwd())
+        with open('main.py', 'w') as f:
+            f.write(
+                """print("Hello World")"""
+            )
 
 
 git_directory = Dir()
