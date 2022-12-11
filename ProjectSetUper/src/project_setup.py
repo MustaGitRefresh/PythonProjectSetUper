@@ -1,6 +1,9 @@
 from gitauto import *
 import os
 
+# MODULE LEVEL variables
+sub_folder_path = ""
+
 
 class Dir:
     def __init__(self):
@@ -35,6 +38,7 @@ class Dir:
         self.git_repo_init()
 
     def sub_main_folder(self):
+        global sub_folder_path
         sub_folder_path = self.path + "\\{}".format(self.project_name)
         os.chdir(sub_folder_path)
         print("change sub")
@@ -60,9 +64,10 @@ class Dir:
         self.project_name = project_name
 
     def src_tests(self):
+        global sub_folder_path
+        sub_folder_path += "\\{}".format(self.project_name)
         folders_main = ['src', 'tests']
         for i in folders_main:
-            sub_folder_path = self.path + "\\{}\\{}".format(self.project_name, self.project_name)
             os.chdir(sub_folder_path)
             print(os.getcwd())
             os.mkdir(i)
