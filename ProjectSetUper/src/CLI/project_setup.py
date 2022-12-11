@@ -12,7 +12,6 @@ class Dir:
         self.project_name = None
         self.output_list = None
         self.error_list = None
-        self.path = "E:\\Pyton Projects"
 
         """
             We have to define the git_dir first because it will throw AttributeError
