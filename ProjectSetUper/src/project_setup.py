@@ -60,7 +60,12 @@ class Dir:
         self.project_name = project_name
 
     def src_tests(self):
-        pass
+        folders_main = ['src', 'tests']
+        for i in folders_main:
+            sub_folder_path = self.path + "\\{}\\{}".format(self.project_name, self.project_name)
+            os.chdir(sub_folder_path)
+            print(os.getcwd())
+            os.mkdir(i)
 
 
 git_directory = Dir()
