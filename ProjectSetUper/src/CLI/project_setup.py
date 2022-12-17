@@ -7,7 +7,7 @@ sub_folder_path = ""
 
 class Dir:
     def __init__(self):
-        self.path = 'E:\\Pyton Projects'
+        self.path = None
 
         self.project_name = None
         self.output_list = None
@@ -17,6 +17,7 @@ class Dir:
             We have to define the git_dir first because it will throw AttributeError
             because it will be created the Git object after function createDir is called.
         """
+        self.taking_project_dir_user()
         self.taking_project_name_user()
         self.createDir()
         self.error_output_list(self.output_list, self.error_list)
@@ -80,6 +81,13 @@ class Dir:
             f.write(
                 """print("Hello World")"""
             )
+
+    def taking_project_dir_user(self):
+        """
+        This will take the input from the user which will be the project directory
+        """
+        project_dir = input("Enter the project directory:\n")
+        self.path = project_dir
 
 
 git_directory = Dir()
