@@ -71,13 +71,14 @@ class Dir:
             os.chdir(sub_folder_path)
             print(os.getcwd())
             os.mkdir(i)
-        return self.project_main_file_creator()
+        return self.project_main_file_creator(self.project_name)
 
     @staticmethod
-    def project_main_file_creator():
+    def project_main_file_creator(project_name):
+        project_name = project_name.replace(' ', '_')
         os.chdir(os.path.join(sub_folder_path, "src"))
         print(os.getcwd())
-        with open('main.py', 'w') as f:
+        with open(f'{project_name}.py', 'w') as f:
             f.write(
                 """print("Hello World")"""
             )
