@@ -15,8 +15,9 @@ class Git:
                'git branch -m main'
                ]
         for i in cmd:
+            print(i)
             sp = subprocess.Popen(i, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = sp.communicate()
             self.output.append(out)
             self.error.append(err)
-            return self.output, self.error
+        return self.output, self.error
