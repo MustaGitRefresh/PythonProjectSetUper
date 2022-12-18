@@ -45,7 +45,7 @@ class Dir:
         print(os.getcwd())
         os.mkdir(self.project_name)
         os.path.join(sub_folder_path, self.project_name)
-        print(os.getcwd())
+        # print(os.getcwd())
 
     def git_repo_init(self):
         out_list, err_list = Git().subprocess_git()
@@ -69,7 +69,7 @@ class Dir:
         folders_main = ['src', 'tests']
         for i in folders_main:
             os.chdir(sub_folder_path)
-            print(os.getcwd())
+            # print(os.getcwd())
             os.mkdir(i)
         return self.project_main_file_creator(self.project_name)
 
@@ -77,7 +77,7 @@ class Dir:
     def project_main_file_creator(project_name):
         project_name = project_name.replace(' ', '_')
         os.chdir(os.path.join(sub_folder_path, "src"))
-        print(os.getcwd())
+        # print(os.getcwd())
         with open(f'{project_name}.py', 'w') as f:
             f.write(
                 """print("Hello World")"""
