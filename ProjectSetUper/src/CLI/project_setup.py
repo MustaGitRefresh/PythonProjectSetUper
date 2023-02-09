@@ -35,6 +35,9 @@ class Dir:
         new_path = os.path.join(self.path, self.project_name)
         os.chdir(new_path)
         print(os.getcwd())
+        with open('Plan.txt', 'w') as plan_creating_file:
+            plan_creating_file.write(
+                "#### CREATE YOUR PROJECT PLAN HERE 👇 ######")
         self.git_repo_init()
 
     def sub_main_folder(self):
@@ -69,7 +72,6 @@ class Dir:
         folders_main = ['src', 'tests']
         for i in folders_main:
             os.chdir(sub_folder_path)
-            # print(os.getcwd())
             os.mkdir(i)
         return self.project_main_file_creator(self.project_name)
 
