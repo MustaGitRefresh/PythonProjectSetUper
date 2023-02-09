@@ -37,7 +37,7 @@ class Dir:
         print(os.getcwd())
         with open('Plan.txt', 'w') as plan_creating_file:
             plan_creating_file.write(
-                "#### CREATE YOUR PROJECT PLAN HERE 👇 ######")
+                "#### CREATE YOUR PROJECT PLAN HERE ######")
         self.git_repo_init()
 
     def sub_main_folder(self):
