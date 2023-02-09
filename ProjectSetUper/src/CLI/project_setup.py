@@ -38,6 +38,8 @@ class Dir:
         with open('Plan.txt', 'w') as plan_creating_file:
             plan_creating_file.write(
                 "#### CREATE YOUR PROJECT PLAN HERE ######")
+        with open('.gitignore', 'w') as gitignore:
+            gitignore.write('Plan.txt')
         self.git_repo_init()
 
     def sub_main_folder(self):
