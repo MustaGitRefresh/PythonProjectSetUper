@@ -64,8 +64,10 @@ class Dir:
         print("_____________________________________________________")
         print(err)
 
-    def taking_project_name_user(self):
-        project_name = input("Enter the project name:\n")
+    def taking_project_name_user(self, project_name=None):
+        if not project_name:
+            project_name = input("Enter the project name:\n")
+        project_name = project_name
         self.project_name = project_name
 
     def src_tests(self):
@@ -87,11 +89,13 @@ class Dir:
                 """print("Hello World")"""
             )
 
-    def taking_project_dir_user(self):
+    def taking_project_dir_user(self, project_dir=None):
         """
         This will take the input from the user which will be the project directory
         """
-        project_dir = input("Enter the project directory:\n")
+        if not project_dir:
+            project_dir = input("Enter the project directory:\n")
+        project_dir = project_dir
         self.path = project_dir
 
 
