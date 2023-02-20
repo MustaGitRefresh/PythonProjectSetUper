@@ -19,12 +19,19 @@ class Home:
         self.root.mainloop()
 
     def set_size(self, height, width):
-        self.root.geometry(f'{height}x{width}')
+        screen_height = root.winfo_screenheight()
+        screen_width = root.winfo_screenwidth()
+
+        x = (screen_width // 2) - (width // 2)
+        y = (screen_height // 2) - (height // 2)
+
+        self.root.geometry(f'{height}x{width}+{x}+{y}')
         self.root.maxsize(600, 600)
 
     def label_app(self):
         label = Label(self.root, text="ProjectSetUpper")
         label.pack()
+
 
 root = Tk()
 Home(root)
