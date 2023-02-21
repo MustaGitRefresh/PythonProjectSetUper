@@ -2,8 +2,8 @@
 
 # Imports
 from tkinter import Tk
-from tkinter import Label, Frame, Entry
-from tkinter import RIDGE
+from tkinter import Label, Frame, Entry, Button
+from tkinter import RIDGE, RIGHT, GROOVE
 
 
 # Creating the Base class for the GUI app
@@ -19,13 +19,13 @@ class Home:
         # Frame
         self.frame = self.inputFrame()
         self.frame.pack()
-        # Entry label
+        # Entry label and entry fields
         self.label_entry(text="Enter the path", padding=[50, 50])
         user_entry_path = self.entryFields()
         self.label_entry(text='Enter the project name', padding=[50, 50])
         user_entry_project_name = self.entryFields()
-        # Entry field
-
+        # 'create' button
+        self.creator_button()
         self.root.mainloop()
 
     def set_size(self, height, width):
@@ -63,7 +63,7 @@ class Home:
         entry_frame = Frame(self.root)
         return entry_frame
 
-    def entryFields(self, font="Helvetica 20 bold"):
+    def entryFields(self, font="Helvetica 15 bold"):
         user_entry = Entry(
             self.frame,
             font=font
@@ -72,6 +72,21 @@ class Home:
         user_entry.pack()
 
         return user_entry
+
+    def creator_button(self, font="Helvetica 15 bold"):
+        creator_button = Button(
+            self.root,
+            text="create",
+            font=font,
+            fg='white',
+            bg='purple',
+            relief=GROOVE,
+        )
+
+        # bind with the function
+        # creator_button.bind('<Button-1>', self.create_project)
+
+        creator_button.pack(side=RIGHT)
 
 
 root = Tk()
