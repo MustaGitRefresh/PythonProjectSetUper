@@ -1,4 +1,4 @@
-from gitauto import *
+from ProjectSetUper.src.CLI.gitauto import *
 import os
 
 # MODULE LEVEL variables
@@ -6,10 +6,10 @@ sub_folder_path = ""
 
 
 class Dir:
-    def __init__(self):
-        self.path = None
 
+    def __init__(self):
         self.project_name = None
+        self.path = None
         self.output_list = None
         self.error_list = None
 
@@ -64,10 +64,8 @@ class Dir:
         print("_____________________________________________________")
         print(err)
 
-    def taking_project_name_user(self, project_name=None):
-        if not project_name:
-            project_name = input("Enter the project name:\n")
-        project_name = project_name
+    def taking_project_name_user(self):
+        project_name = input("Enter the project name:\n")
         self.project_name = project_name
 
     def src_tests(self):
@@ -89,13 +87,12 @@ class Dir:
                 """print("Hello World")"""
             )
 
-    def taking_project_dir_user(self, project_dir=None):
+    def taking_project_dir_user(self):
         """
         This will take the input from the user which will be the project directory
         """
-        if not project_dir:
-            project_dir = input("Enter the project directory:\n")
-        project_dir = project_dir
+
+        project_dir = input("Enter the project directory:\n")
         self.path = project_dir
 
 
